@@ -23,7 +23,10 @@ function App() {
     setCardIndex(0);
   };
 
-  const handlePlayerSolve = () => {
+  const handlePlayerSolve = (playerId) => {
+    setPlayers((prev) =>
+      prev.map((p) => (p.id === playerId ? { ...p, score: p.score + 1 } : p))
+    );
     setCardIndex((i) => i + 1);
   };
 
