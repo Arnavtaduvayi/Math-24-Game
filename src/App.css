@@ -3,40 +3,56 @@
 }
 
 .app h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  margin-bottom: 4px;
+  color: white;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.app .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
   margin-bottom: 20px;
-  color: #222;
+}
+
+.card-counter {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
 }
 
 .game-over {
   background: white;
-  border-radius: 12px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 36px;
   margin: 20px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .game-over h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 24px;
   color: #222;
 }
 
 .final-scores {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .final-score-row {
   display: flex;
   justify-content: space-between;
-  padding: 8px 20px;
+  padding: 10px 24px;
   font-size: 1.1rem;
+  border-radius: 8px;
 }
 
 .final-score-row:first-child {
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #f59e0b;
+  background: #fffbeb;
 }
 
 .final-name {
@@ -52,7 +68,7 @@
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .control-btn.new-round {

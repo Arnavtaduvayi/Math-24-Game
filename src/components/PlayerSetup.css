@@ -1,33 +1,48 @@
 .player-setup {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.player-setup .setup-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 12px;
 }
 
 .player-setup label {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  color: #333;
 }
 
 .player-setup input {
-  width: 60px;
-  padding: 8px;
-  font-size: 1rem;
-  border: 2px solid #d1d5db;
-  border-radius: 6px;
+  width: 64px;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
   text-align: center;
+  font-weight: 600;
+  transition: border-color 0.2s;
+}
+
+.player-setup input:focus {
+  outline: none;
+  border-color: #3b82f6;
 }
 
 .player-setup button {
-  padding: 8px 16px;
-  font-size: 0.95rem;
+  padding: 10px 20px;
+  font-size: 1rem;
   font-weight: 600;
   background: #3b82f6;
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
 }

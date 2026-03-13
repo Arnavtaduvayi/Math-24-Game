@@ -20,6 +20,7 @@ function App() {
   const [deck, setDeck] = useState(() => shuffle(cards));
   const [cardIndex, setCardIndex] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [lastScored, setLastScored] = useState(null);
 
   const currentCard = cardIndex < deck.length ? deck[cardIndex] : null;
   const gameOver = cardIndex >= deck.length && gameStarted;
@@ -29,6 +30,7 @@ function App() {
     setDeck(shuffle(cards));
     setCardIndex(0);
     setGameStarted(true);
+    setLastScored(null);
   }, []);
 
   const handleAwardPoint = useCallback((playerId) => {
@@ -38,6 +40,7 @@ function App() {
         p.id === playerId ? { ...p, score: p.score + 1 } : p
       )
     );
+    setLastScored(playerId);
     setCardIndex((prev) => prev + 1);
   }, [currentCard]);
 
@@ -51,24 +54,34 @@ function App() {
     setDeck(shuffle(cards));
     setCardIndex(0);
     setGameStarted(false);
+    setLastScored(null);
   }, []);
 
   const handleNewRound = useCallback(() => {
     setPlayers((prev) => prev.map((p) => ({ ...p, score: 0 })));
     setDeck(shuffle(cards));
     setCardIndex(0);
+    setLastScored(null);
   }, []);
 
   return (
     <div className="app">
       <h1>Math 24</h1>
+      <p className="subtitle">Make 24 using +, −, ×, ÷</p>
 
       {!gameStarted && <PlayerSetup onSetPlayers={handleSetPlayers} />}
 
       {gameStarted && !gameOver && (
         <>
+          <p className="card-counter">
+            Card {cardIndex + 1} of {deck.length}
+          </p>
           <CardDisplay card={currentCard} />
-          <PlayerList players={players} onAwardPoint={handleAwardPoint} />
+          <PlayerList
+            players={players}
+            onAwardPoint={handleAwardPoint}
+            lastScored={lastScored}
+          />
           <Controls
             onNextCard={handleNextCard}
             onResetGame={handleResetGame}
@@ -80,7 +93,7 @@ function App() {
         <div className="game-over">
           <h2>Game Over!</h2>
           <div className="final-scores">
-            {players
+            {[...players]
               .sort((a, b) => b.score - a.score)
               .map((p) => (
                 <div key={p.id} className="final-score-row">

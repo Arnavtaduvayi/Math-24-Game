@@ -1,6 +1,6 @@
 import './PlayerList.css';
 
-function PlayerList({ players, onAwardPoint }) {
+function PlayerList({ players, onAwardPoint, lastScored }) {
   if (players.length === 0) {
     return null;
   }
@@ -8,14 +8,17 @@ function PlayerList({ players, onAwardPoint }) {
   return (
     <div className="player-list">
       {players.map((player) => (
-        <div key={player.id} className="player-card">
+        <div
+          key={player.id}
+          className={`player-card ${lastScored === player.id ? 'just-scored' : ''}`}
+        >
           <button
             className="player-button"
             onClick={() => onAwardPoint(player.id)}
           >
             {player.name}
           </button>
-          <span className="player-score">Score: {player.score}</span>
+          <span className="player-score">{player.score} pts</span>
         </div>
       ))}
     </div>

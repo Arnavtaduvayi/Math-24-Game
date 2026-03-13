@@ -17,16 +17,18 @@ function PlayerSetup({ onSetPlayers }) {
 
   return (
     <form className="player-setup" onSubmit={handleSubmit}>
-      <label htmlFor="player-count">Number of Players:</label>
-      <input
-        id="player-count"
-        type="number"
-        min="1"
-        max="10"
-        value={count}
-        onChange={(e) => setCount(Number(e.target.value))}
-      />
-      <button type="submit">Set Players</button>
+      <div className="setup-row">
+        <label htmlFor="player-count">Players:</label>
+        <input
+          id="player-count"
+          type="number"
+          min="1"
+          max="10"
+          value={count}
+          onChange={(e) => setCount(Number(e.target.value))}
+        />
+        <button type="submit">Start Game</button>
+      </div>
     </form>
   );
 }

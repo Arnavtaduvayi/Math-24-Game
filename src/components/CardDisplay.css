@@ -1,9 +1,9 @@
 .card-display {
   background: white;
-  border-radius: 12px;
-  padding: 30px;
-  margin: 20px 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin: 12px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .card-display.empty {
@@ -14,27 +14,28 @@
 .card-numbers {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   margin-bottom: 16px;
 }
 
 .card-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: #f0f0f0;
-  width: 70px;
-  height: 70px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f0f0f0, #e8e8e8);
+  width: 68px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-radius: 12px;
+  color: #222;
 }
 
 .card-difficulty {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   margin-bottom: 12px;
 }
 
@@ -55,23 +56,28 @@
 }
 
 .reveal-btn {
-  padding: 6px 14px;
+  padding: 6px 16px;
   font-size: 0.85rem;
-  background: #f3f4f6;
-  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
   border-radius: 6px;
   cursor: pointer;
-  color: #555;
-  transition: background 0.2s;
+  color: #6b7280;
+  transition: all 0.2s;
 }
 
 .reveal-btn:hover {
-  background: #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
 }
 
 .solution-text {
-  font-family: ui-monospace, monospace;
+  font-family: ui-monospace, Consolas, monospace;
   font-size: 0.95rem;
   color: #6b7280;
   margin: 0;
+  padding: 6px 12px;
+  background: #f9fafb;
+  border-radius: 6px;
+  display: inline-block;
 }
