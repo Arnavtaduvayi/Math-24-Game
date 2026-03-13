@@ -1,0 +1,50 @@
+.card-display {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-display.empty {
+  color: #999;
+  font-style: italic;
+}
+
+.card-numbers {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: #f0f0f0;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.card-difficulty {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-difficulty.easy {
+  color: #22c55e;
+}
+
+.card-difficulty.medium {
+  color: #f59e0b;
+}
+
+.card-difficulty.hard {
+  color: #ef4444;
+}
