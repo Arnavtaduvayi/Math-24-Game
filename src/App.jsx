@@ -1,20 +1,20 @@
+import { useState } from 'react';
 import './App.css';
 import CardDisplay from './components/CardDisplay';
 import PlayerList from './components/PlayerList';
+import PlayerSetup from './components/PlayerSetup';
 import Controls from './components/Controls';
 import cards from './data/cards';
 
 function App() {
-  const demoPlayers = [
-    { id: 1, name: 'Player 1', score: 0 },
-    { id: 2, name: 'Player 2', score: 0 },
-  ];
+  const [players, setPlayers] = useState([]);
 
   return (
     <div className="app">
       <h1>Math 24</h1>
+      <PlayerSetup onSetPlayers={setPlayers} />
       <CardDisplay card={cards[0]} />
-      <PlayerList players={demoPlayers} />
+      <PlayerList players={players} />
       <Controls />
     </div>
   );
