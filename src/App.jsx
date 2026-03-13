@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import './App.css';
 import CardDisplay from './components/CardDisplay';
 import PlayerList from './components/PlayerList';
@@ -6,35 +6,99 @@ import PlayerSetup from './components/PlayerSetup';
 import Controls from './components/Controls';
 import cards from './data/cards';
 
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function App() {
   const [players, setPlayers] = useState([]);
+  const [deck, setDeck] = useState(() => shuffle(cards));
   const [cardIndex, setCardIndex] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
 
-  const currentCard = cardIndex < cards.length ? cards[cardIndex] : null;
+  const currentCard = cardIndex < deck.length ? deck[cardIndex] : null;
+  const gameOver = cardIndex >= deck.length && gameStarted;
 
-  function handleSetPlayers(newPlayers) {
+  const handleSetPlayers = useCallback((newPlayers) => {
     setPlayers(newPlayers);
+    setDeck(shuffle(cards));
     setCardIndex(0);
-  }
+    setGameStarted(true);
+  }, []);
 
-  function handleAwardPoint(playerId) {
+  const handleAwardPoint = useCallback((playerId) => {
     if (!currentCard) return;
-
     setPlayers((prev) =>
       prev.map((p) =>
         p.id === playerId ? { ...p, score: p.score + 1 } : p
       )
     );
     setCardIndex((prev) => prev + 1);
-  }
+  }, [currentCard]);
+
+  const handleNextCard = useCallback(() => {
+    if (!currentCard) return;
+    setCardIndex((prev) => prev + 1);
+  }, [currentCard]);
+
+  const handleResetGame = useCallback(() => {
+    setPlayers([]);
+    setDeck(shuffle(cards));
+    setCardIndex(0);
+    setGameStarted(false);
+  }, []);
+
+  const handleNewRound = useCallback(() => {
+    setPlayers((prev) => prev.map((p) => ({ ...p, score: 0 })));
+    setDeck(shuffle(cards));
+    setCardIndex(0);
+  }, []);
 
   return (
     <div className="app">
       <h1>Math 24</h1>
-      <PlayerSetup onSetPlayers={handleSetPlayers} />
-      <CardDisplay card={currentCard} />
-      <PlayerList players={players} onAwardPoint={handleAwardPoint} />
-      <Controls />
+
+      {!gameStarted && <PlayerSetup onSetPlayers={handleSetPlayers} />}
+
+      {gameStarted && !gameOver && (
+        <>
+          <CardDisplay card={currentCard} />
+          <PlayerList players={players} onAwardPoint={handleAwardPoint} />
+          <Controls
+            onNextCard={handleNextCard}
+            onResetGame={handleResetGame}
+          />
+        </>
+      )}
+
+      {gameOver && (
+        <div className="game-over">
+          <h2>Game Over!</h2>
+          <div className="final-scores">
+            {players
+              .sort((a, b) => b.score - a.score)
+              .map((p) => (
+                <div key={p.id} className="final-score-row">
+                  <span className="final-name">{p.name}</span>
+                  <span className="final-score">{p.score} pts</span>
+                </div>
+              ))}
+          </div>
+          <div className="game-over-actions">
+            <button className="control-btn new-round" onClick={handleNewRound}>
+              New Round
+            </button>
+            <button className="control-btn reset" onClick={handleResetGame}>
+              Reset Game
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

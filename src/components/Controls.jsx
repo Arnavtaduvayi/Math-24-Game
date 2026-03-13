@@ -1,10 +1,14 @@
 import './Controls.css';
 
-function Controls() {
+function Controls({ onNextCard, onResetGame }) {
   return (
     <div className="controls">
-      <button className="control-btn next">Next Card</button>
-      <button className="control-btn reset">Reset Game</button>
+      <button className="control-btn next" onClick={onNextCard}>
+        Next Card
+      </button>
+      <button className="control-btn reset" onClick={onResetGame}>
+        Reset Game
+      </button>
     </div>
   );
 }

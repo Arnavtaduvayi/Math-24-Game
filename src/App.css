@@ -7,3 +7,59 @@
   margin-bottom: 20px;
   color: #222;
 }
+
+.game-over {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-over h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.final-scores {
+  margin-bottom: 20px;
+}
+
+.final-score-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  font-size: 1.1rem;
+}
+
+.final-score-row:first-child {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #f59e0b;
+}
+
+.final-name {
+  color: #333;
+}
+
+.final-score {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.game-over-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.control-btn.new-round {
+  background: #3b82f6;
+  color: white;
+}
+
+.control-btn.new-round:hover {
+  background: #2563eb;
+}
