@@ -1,9 +1,9 @@
 .player-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
-  margin: 16px 0;
+  margin: 18px 0;
 }
 
 .player-card {
@@ -15,32 +15,36 @@
 }
 
 .player-card.just-scored {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .player-card.just-scored .player-button {
   background: #22c55e;
   border-color: #22c55e;
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.2);
+  color: #000;
 }
 
 .player-button {
-  padding: 10px 22px;
-  font-size: 1rem;
-  font-weight: 600;
-  border: 2px solid #3b82f6;
-  background: #3b82f6;
-  color: white;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 2px solid #00c8ff;
+  background: transparent;
+  color: #00c8ff;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s;
-  min-width: 100px;
+  min-width: 110px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .player-button:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  background: #00c8ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.4), 0 0 30px rgba(0, 200, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .player-button:active {
@@ -48,7 +52,9 @@
 }
 
 .player-score {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 600;
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
