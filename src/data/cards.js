@@ -2,7 +2,7 @@
 // using only +, -, *, / with no fractions or decimals at any intermediate step.
 
 const cards = [
-  // ===== EASY (12 cards) =====
+  // ===== EASY (29 cards) =====
   { numbers: [1, 2, 3, 4], difficulty: 'Easy', solution: '1 × 2 × 3 × 4 = 24' },
   { numbers: [2, 2, 2, 3], difficulty: 'Easy', solution: '2 × 2 × 2 × 3 = 24' },
   { numbers: [1, 2, 3, 8], difficulty: 'Easy', solution: '(8 - 2) × (3 + 1) = 24' },
@@ -15,8 +15,25 @@ const cards = [
   { numbers: [2, 2, 3, 6], difficulty: 'Easy', solution: '(6 - 2) × 2 × 3 = 24' },
   { numbers: [2, 4, 5, 5], difficulty: 'Easy', solution: '(5 + 5) × 2 + 4 = 24' },
   { numbers: [1, 2, 4, 8], difficulty: 'Easy', solution: '8 × (4 - 2 + 1) = 24' },
+  { numbers: [4, 5, 6, 9], difficulty: 'Easy', solution: '4 + 5 + 6 + 9 = 24' },
+  { numbers: [1, 6, 8, 9], difficulty: 'Easy', solution: '1 + 6 + 8 + 9 = 24' },
+  { numbers: [2, 6, 8, 8], difficulty: 'Easy', solution: '2 + 6 + 8 + 8 = 24' },
+  { numbers: [3, 5, 8, 8], difficulty: 'Easy', solution: '3 + 5 + 8 + 8 = 24' },
+  { numbers: [2, 5, 8, 9], difficulty: 'Easy', solution: '2 + 5 + 8 + 9 = 24' },
+  { numbers: [1, 7, 7, 9], difficulty: 'Easy', solution: '1 + 7 + 7 + 9 = 24' },
+  { numbers: [1, 2, 3, 5], difficulty: 'Easy', solution: '(1 + 2 + 5) × 3 = 24' },
+  { numbers: [2, 2, 3, 4], difficulty: 'Easy', solution: '(2 + 2 + 4) × 3 = 24' },
+  { numbers: [1, 3, 3, 4], difficulty: 'Easy', solution: '(1 + 3 + 4) × 3 = 24' },
+  { numbers: [2, 3, 4, 5], difficulty: 'Easy', solution: '(3 + 4 + 5) × 2 = 24' },
+  { numbers: [1, 2, 3, 7], difficulty: 'Easy', solution: '3 × 7 + 2 + 1 = 24' },
+  { numbers: [1, 3, 4, 5], difficulty: 'Easy', solution: '4 × 5 + 3 + 1 = 24' },
+  { numbers: [2, 2, 4, 5], difficulty: 'Easy', solution: '5 × 4 + 2 + 2 = 24' },
+  { numbers: [2, 3, 4, 6], difficulty: 'Easy', solution: '3 × 6 + 4 + 2 = 24' },
+  { numbers: [1, 3, 5, 9], difficulty: 'Easy', solution: '5 × 3 + 9 × 1 = 24' },
+  { numbers: [2, 2, 5, 7], difficulty: 'Easy', solution: '7 × 2 + 5 × 2 = 24' },
+  { numbers: [2, 2, 3, 8], difficulty: 'Easy', solution: '8 × 3 + 2 - 2 = 24' },
 
-  // ===== MEDIUM (12 cards) =====
+  // ===== MEDIUM (29 cards) =====
   { numbers: [1, 2, 2, 8], difficulty: 'Medium', solution: '8 × (2 + 2 - 1) = 24' },
   { numbers: [2, 3, 5, 6], difficulty: 'Medium', solution: '6 × (5 - 3 + 2) = 24' },
   { numbers: [3, 3, 4, 6], difficulty: 'Medium', solution: '(6 + 3 - 3) × 4 = 24' },
@@ -29,8 +46,25 @@ const cards = [
   { numbers: [2, 3, 6, 9], difficulty: 'Medium', solution: '(9 - 3) × (6 - 2) = 24' },
   { numbers: [1, 4, 5, 8], difficulty: 'Medium', solution: '(8 - 4) × (5 + 1) = 24' },
   { numbers: [1, 5, 7, 8], difficulty: 'Medium', solution: '(7 + 1) × (8 - 5) = 24' },
+  { numbers: [1, 3, 3, 9], difficulty: 'Medium', solution: '(1 + 3) × (9 - 3) = 24' },
+  { numbers: [2, 2, 3, 9], difficulty: 'Medium', solution: '(2 + 2) × (9 - 3) = 24' },
+  { numbers: [3, 4, 5, 7], difficulty: 'Medium', solution: '(3 + 5) × (7 - 4) = 24' },
+  { numbers: [2, 4, 6, 7], difficulty: 'Medium', solution: '(2 + 6) × (7 - 4) = 24' },
+  { numbers: [1, 6, 7, 9], difficulty: 'Medium', solution: '(1 + 7) × (9 - 6) = 24' },
+  { numbers: [3, 5, 6, 9], difficulty: 'Medium', solution: '(3 + 5) × (9 - 6) = 24' },
+  { numbers: [3, 4, 4, 6], difficulty: 'Medium', solution: '(4 + 4) × (6 - 3) = 24' },
+  { numbers: [3, 5, 7, 9], difficulty: 'Medium', solution: '(3 + 9) × (7 - 5) = 24' },
+  { numbers: [4, 5, 7, 8], difficulty: 'Medium', solution: '(4 + 8) × (7 - 5) = 24' },
+  { numbers: [5, 6, 7, 8], difficulty: 'Medium', solution: '(5 + 7) × (8 - 6) = 24' },
+  { numbers: [3, 6, 8, 9], difficulty: 'Medium', solution: '(3 + 9) × (8 - 6) = 24' },
+  { numbers: [2, 4, 5, 7], difficulty: 'Medium', solution: '(5 + 7) × (4 - 2) = 24' },
+  { numbers: [3, 5, 6, 6], difficulty: 'Medium', solution: '(6 + 6) × (5 - 3) = 24' },
+  { numbers: [1, 4, 5, 7], difficulty: 'Medium', solution: '4 × 7 + 1 - 5 = 24' },
+  { numbers: [1, 3, 4, 9], difficulty: 'Medium', solution: '3 × 9 - 4 + 1 = 24' },
+  { numbers: [2, 2, 4, 6], difficulty: 'Medium', solution: '4 × 6 + 2 - 2 = 24' },
+  { numbers: [3, 3, 5, 6], difficulty: 'Medium', solution: '5 × 6 - 3 - 3 = 24' },
 
-  // ===== HARD (12 cards) =====
+  // ===== HARD (28 cards) =====
   { numbers: [1, 5, 7, 9], difficulty: 'Hard', solution: '(9 - 5) × (7 - 1) = 24' },
   { numbers: [2, 3, 7, 8], difficulty: 'Hard', solution: '(8 - 2) × (7 - 3) = 24' },
   { numbers: [2, 3, 5, 8], difficulty: 'Hard', solution: '2 × (3 + 5) + 8 = 24' },
@@ -43,6 +77,22 @@ const cards = [
   { numbers: [2, 5, 7, 8], difficulty: 'Hard', solution: '(2 × 5 - 7) × 8 = 24' },
   { numbers: [1, 2, 8, 9], difficulty: 'Hard', solution: '9 × 8 / (2 + 1) = 24' },
   { numbers: [2, 4, 6, 8], difficulty: 'Hard', solution: '(8 / 4 + 2) × 6 = 24' },
+  { numbers: [4, 7, 8, 9], difficulty: 'Hard', solution: '(4 + 8) × (9 - 7) = 24' },
+  { numbers: [3, 7, 9, 9], difficulty: 'Hard', solution: '(3 + 9) × (9 - 7) = 24' },
+  { numbers: [5, 7, 7, 9], difficulty: 'Hard', solution: '(5 + 7) × (9 - 7) = 24' },
+  { numbers: [2, 6, 6, 9], difficulty: 'Hard', solution: '(2 + 6) × (9 - 6) = 24' },
+  { numbers: [1, 6, 9, 9], difficulty: 'Hard', solution: '(9 - 1) × (9 - 6) = 24' },
+  { numbers: [2, 2, 4, 7], difficulty: 'Hard', solution: '4 × 7 - 2 - 2 = 24' },
+  { numbers: [1, 2, 5, 5], difficulty: 'Hard', solution: '5 × 5 + 1 - 2 = 24' },
+  { numbers: [2, 2, 4, 8], difficulty: 'Hard', solution: '(8 + 2) × 2 + 4 = 24' },
+  { numbers: [1, 4, 4, 7], difficulty: 'Hard', solution: '7 × 4 - 4 × 1 = 24' },
+  { numbers: [2, 4, 4, 8], difficulty: 'Hard', solution: '2 × 4 × 4 - 8 = 24' },
+  { numbers: [1, 3, 3, 3], difficulty: 'Hard', solution: '(3 × 3 - 1) × 3 = 24' },
+  { numbers: [3, 3, 5, 7], difficulty: 'Hard', solution: '(5 × 3 - 7) × 3 = 24' },
+  { numbers: [2, 5, 6, 7], difficulty: 'Hard', solution: '6 × (7 - 5 + 2) = 24' },
+  { numbers: [1, 4, 8, 8], difficulty: 'Hard', solution: '(8 / 4 + 1) × 8 = 24' },
+  { numbers: [3, 4, 4, 9], difficulty: 'Hard', solution: '9 × 4 - 3 × 4 = 24' },
+  { numbers: [2, 6, 7, 9], difficulty: 'Hard', solution: '6 × (9 - 7 + 2) = 24' },
 ];
 
 export default cards;
