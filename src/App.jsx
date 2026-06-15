@@ -6,6 +6,7 @@ import PlayerSetup from './components/PlayerSetup';
 import Controls from './components/Controls';
 import cards from './data/cards';
 
+// Fisher-Yates shuffle: returns a new randomized copy without mutating the input.
 function shuffle(array) {
   const arr = [...array];
   for (let i = arr.length - 1; i > 0; i--) {
@@ -15,16 +16,22 @@ function shuffle(array) {
   return arr;
 }
 
+// Root component: owns all game state and orchestrates the setup, play, and game-over screens.
 function App() {
   const [players, setPlayers] = useState([]);
+  // Shuffle the cards once on mount so the deck order is randomized for the session.
   const [deck, setDeck] = useState(() => shuffle(cards));
   const [cardIndex, setCardIndex] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  // Tracks the player who scored the most recent point, used to highlight their card.
   const [lastScored, setLastScored] = useState(null);
 
+  // The card currently in play, or null once the deck is exhausted.
   const currentCard = cardIndex < deck.length ? deck[cardIndex] : null;
+  // The game ends when we've advanced past the last card of a started game.
   const gameOver = cardIndex >= deck.length && gameStarted;
 
+  // Begin a new game with the chosen players and a freshly shuffled deck.
   const handleSetPlayers = useCallback((newPlayers) => {
     setPlayers(newPlayers);
     setDeck(shuffle(cards));
@@ -33,6 +40,7 @@ function App() {
     setLastScored(null);
   }, []);
 
+  // Give a point to the player who solved the card, then advance to the next card.
   const handleAwardPoint = useCallback((playerId) => {
     if (!currentCard) return;
     setPlayers((prev) =>
@@ -44,11 +52,13 @@ function App() {
     setCardIndex((prev) => prev + 1);
   }, [currentCard]);
 
+  // Skip the current card without awarding any points.
   const handleNextCard = useCallback(() => {
     if (!currentCard) return;
     setCardIndex((prev) => prev + 1);
   }, [currentCard]);
 
+  // Return all the way to the player-setup screen, clearing players and scores.
   const handleResetGame = useCallback(() => {
     setPlayers([]);
     setDeck(shuffle(cards));
@@ -57,6 +67,7 @@ function App() {
     setLastScored(null);
   }, []);
 
+  // Play again with the same players: reset their scores and reshuffle the deck.
   const handleNewRound = useCallback(() => {
     setPlayers((prev) => prev.map((p) => ({ ...p, score: 0 })));
     setDeck(shuffle(cards));

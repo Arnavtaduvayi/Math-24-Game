@@ -1,5 +1,6 @@
 import './Controls.css';
 
+// In-game action buttons for skipping the current card or resetting the whole game.
 function Controls({ onNextCard, onResetGame }) {
   return (
     <div className="controls">

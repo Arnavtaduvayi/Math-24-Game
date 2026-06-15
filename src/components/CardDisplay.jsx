@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import './CardDisplay.css';
 
+// Renders the four numbers of the current card, its difficulty, and an optional revealable solution.
 function CardDisplay({ card }) {
   const [showSolution, setShowSolution] = useState(false);
 
+  // Re-hide the solution whenever a new card is shown.
   useEffect(() => {
     setShowSolution(false);
   }, [card]);

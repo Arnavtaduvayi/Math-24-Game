@@ -1,5 +1,6 @@
 import './PlayerList.css';
 
+// Shows each player as a button; clicking a player awards them the point for the current card.
 function PlayerList({ players, onAwardPoint, lastScored }) {
   if (players.length === 0) {
     return null;
